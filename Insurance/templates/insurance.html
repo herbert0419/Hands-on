@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>Insurance Fraudlent Portal</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="./static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="./static/css2/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+</head>
+
+<body>
+    <nav class="light-blue lighten-1" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Navbar Link</a></li>
+            </ul>
+
+            <ul id="nav-mobile" class="sidenav">
+                <li><a href="#">Navbar Link</a></li>
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+
+
+    <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+            <br><br>
+            <h4 class="header center orange-text"><b>Insurance Claims Fraud Detection</b></h3>
+                <div class="row center">
+                    <h6 class="header col s12 light"><b><i>Predict the Fraud Entries in Insurance Claims</i></b>
+                        <br>
+                    </h6>
+                </div>
+
+                <div class="row">
+                    <form action='/predict' method="post" class="col s12">
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <label for="months_as_customer"><b>Months_as_Customer</b></label>
+                                <br>
+                                <input placeholder="months_as_customer" name="Months_as_Customer" id="months_as_customer" type="text" class="validate">
+                            </div>
+                            <div class="input-field col s4">
+
+                                <label for="policy_deductable"><b>policy_deductable </b></label>
+                                <br>
+                                <input id="policy_deductable" name="policy_deductable" placeholder="policy_deductable" type="text" class="validate">
+
+                            </div>
+
+                            <div class="input-field col s4">
+                                <label for="umbrella_limit"><b>umbrella_limit</b></label>
+                                <br>
+                                <input id="umbrella_limit" name="umbrella_limit" placeholder="umbrella_limit" type="text" class="validate">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <label for="capital-gains"><b>capital-gains</b></label>
+                                <br>
+                                <input placeholder="capital-gains" name="capital-gains" id="months_as_customer" type="text" class="validate">
+                            </div>
+                            <div class="input-field col s4">
+
+                                <label for="capital-loss"><b>capital-loss </b></label>
+                                <br>
+                                <input id="capital-loss" name="capital-loss" placeholder="capital-loss" type="text" class="validate">
+
+                            </div>
+
+                            <div class="input-field col s4">
+                                <label for="incident_hour_of_the_day"><b>incident_hour_of_the_day</b></label>
+                                <br>
+                                <input id="incident_hour_of_the_day" name="incident_hour_of_the_day" placeholder="incident_hour_of_the_day" type="text" class="validate">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <label for="number_of_vehicles_involved"><b>number_of_vehicles_involved</b></label>
+                                <br>
+                                <input placeholder="number_of_vehicles_involved" name="number_of_vehicles_involved" id="number_of_vehicles_involved" type="text" class="validate">
+                            </div>
+                            <div class="input-field col s4">
+
+                                <label for="bodily_injuries"><b>bodily_injuries </b></label>
+                                <br>
+                                <input id="bodily_injuries" name="bodily_injuries" placeholder="bodily_injuries" type="text" class="validate">
+
+                            </div>
+
+                            <div class="input-field col s4">
+                                <label for="witnesses"><b>witnesses</b></label>
+                                <br>
+                                <input id="witnesses" name="witnesses" placeholder="witnesses" type="text" class="validate">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <label for="injury_claim"><b>injury_claim</b></label>
+                                <br>
+                                <input placeholder="injury_claim" name="injury_claim" id="injury_claim" type="text" class="validate">
+                            </div>
+                            <div class="input-field col s4">
+
+                                <label for="property_claim"><b>property_claim </b></label>
+                                <br>
+                                <input id="property_claim" name="property_claim" placeholder="property_claim" type="text" class="validate">
+
+                            </div>
+
+                            <div class="input-field col s4">
+                                <label for="vehicle_claim"><b>vehicle_claim</b></label>
+                                <br>
+                                <input id="vehicle_claim" name="vehicle_claim" placeholder="vehicle_claim " type="text" class="validate">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <label for="policy_csl_250/500"><b>policy_csl_250/500</b></label>
+                                <br>
+                                <input placeholder="policy_csl_250/500" name="policy_csl_250/500" id="policy_csl_250/500" type="text" class="validate">
+                            </div>
+                            <div class="input-field col s4">
+
+                                <label for="policy_csl_500/1000"><b>policy_csl_500/1000 </b></label>
+                                <br>
+                                <input id="policy_csl_500/1000" name="policy_csl_500/1000" placeholder="policy_csl_500/1000" type="text" class="validate">
+
+                            </div>
+
+                            <div class="input-field col s4">
+                                <label for="insured_sex_MALE"><b>insured_sex_MALE</b></label>
+                                <br>
+                                <input id="insured_sex_MALE" name="insured_sex_MALE" placeholder="insured_sex_MALE" type="text" class="validate">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <label for="insured_education_level_College"><b>insured_education_level_College</b></label>
+                                <br>
+                                <input placeholder="insured_education_level_College" name="insured_education_level_College" id="insured_education_level_College" type="text" class="validate">
+                            </div>
+                            <div class="input-field col s4">
+
+                                <label for="insured_education_level_High School"><b>insured_education_level_High School </b></label>
+                                <br>
+                                <input id="insured_education_level_High School" name="insured_education_level_High School" placeholder="insured_education_level_High School" type="text" class="validate">
+
+                            </div>
+
+                            <div class="input-field col s4">
+                                <label for="insured_education_level_JD"><b>insured_education_level_JD</b></label>
+                                <br>
+                                <input id="insured_education_level_JD" name="insured_education_level_JD" placeholder="insured_education_level_JD" type="text" class="validate">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <label for="insured_education_level_MD"><b>insured_education_level_MD</b></label>
+                                <br>
+                                <input placeholder="insured_education_level_MD" name="insured_education_level_MD" id="insured_education_level_MD" type="text" class="validate">
+                            </div>
+                            <div class="input-field col s4">
+
+                                <label for="insured_education_level_Masters"><b>insured_education_level_Masters </b></label>
+                                <br>
+                                <input id="insured_education_level_Masters" name="insured_education_level_Masters" placeholder="insured_education_level_Masters" type="text" class="validate">
+
+                            </div>
+
+                            <div class="input-field col s4">
+                                <label for="insured_education_level_PhD"><b>insured_education_level_PhD</b></label>
+                                <br>
+                                <input id="insured_education_level_PhD" name="insured_education_level_PhD" placeholder="insured_education_level_PhD" type="text" class="validate">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <label for="insured_occupation_armed-forces"><b>insured_occupation_armed-forces</b></label>
+                                <br>
+                                <input placeholder="insured_occupation_armed-forces" name="insured_occupation_armed-forces" id="insured_occupation_armed-forces" type="text" class="validate">
+                            </div>
+                            <div class="input-field col s4">
+
+                                <label for="insured_occupation_craft-repair"><b>insured_occupation_craft-repair </b></label>
+                                <br>
+                                <input id="insured_occupation_craft-repair" name="insured_occupation_craft-repair" placeholder="insured_occupation_craft-repair" type="text" class="validate">
+
+                            </div>
+
+                            <div class="input-field col s4">
+                                <label for="insured_occupation_exec-managerial"><b>insured_occupation_exec-managerial</b></label>
+                                <br>
+                                <input id="insured_occupation_exec-managerial" name="insured_occupation_exec-managerial" placeholder="insured_occupation_exec-managerial" type="text" class="validate">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <label for="insured_occupation_farming-fishing"><b>insured_occupation_farming-fishing</b></label>
+                                <br>
+                                <input placeholder="insured_occupation_farming-fishing" name="insured_occupation_farming-fishing" id="insured_occupation_farming-fishing" type="text" class="validate">
+                            </div>
+                            <div class="input-field col s4">
+
+                                <label for="insured_occupation_handlers-cleaners"><b>insured_occupation_handlers-cleaners </b></label>
+                                <br>
+                                <input id="insured_occupation_handlers-cleaners" name="insured_occupation_handlers-cleaners" placeholder="insured_occupation_handlers-cleaners" type="text" class="validate">
+
+                            </div>
+
+                            <div class="input-field col s4">
+                                <label for="insured_occupation_machine-op-inspct"><b>insured_occupation_machine-op-inspct</b></label>
+                                <br>
+                                <input id="insured_occupation_machine-op-inspct" name="insured_occupation_machine-op-inspct" placeholder="insured_occupation_machine-op-inspct" type="text" class="validate">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <label for="insured_occupation_other-service"><b>insured_occupation_other-service</b></label>
+                                <br>
+                                <input placeholder="insured_occupation_other-service" name="insured_occupation_other-service" id="insured_occupation_other-service" type="text" class="validate">
+                            </div>
+                            <div class="input-field col s4">
+
+                                <label for="insured_occupation_priv-house-serv"><b>insured_occupation_priv-house-serv </b></label>
+                                <br>
+                                <input id="insured_occupation_priv-house-serv" name="insured_occupation_priv-house-serv" placeholder="insured_occupation_priv-house-serv" type="text" class="validate">
+
+                            </div>
+
+                            <div class="input-field col s4">
+                                <label for="insured_occupation_prof-specialty"><b>insured_occupation_prof-specialty</b></label>
+                                <br>
+                                <input id="insured_occupation_prof-specialty" name="insured_occupation_prof-specialty" placeholder="insured_occupation_prof-specialty" type="text" class="validate">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <label for="insured_occupation_protective-serv"><b>insured_occupation_protective-serv</b></label>
+                                <br>
+                                <input placeholder="insured_occupation_protective-serv" name="insured_occupation_protective-serv" id="insured_occupation_protective-serv" type="text" class="validate">
+                            </div>
+                            <div class="input-field col s4">
+
+                                <label for="insured_occupation_sales"><b>insured_occupation_sales </b></label>
+                                <br>
+                                <input id="insured_occupation_sales" name="insured_occupation_sales" placeholder="insured_occupation_sales" type="text" class="validate">
+
+                            </div>
+
+                            <div class="input-field col s4">
+                                <label for="insured_occupation_tech-support"><b>insured_occupation_tech-support</b></label>
+                                <br>
+                                <input id="insured_occupation_tech-support" name="insured_occupation_tech-support" placeholder="insured_occupation_tech-support" type="text" class="validate">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <label for="insured_occupation_transport-moving"><b>insured_occupation_transport-moving</b></label>
+                                <br>
+                                <input placeholder="insured_occupation_transport-moving" name="insured_occupation_transport-moving" id="insured_occupation_transport-moving" type="text" class="validate">
+                            </div>
+                            <div class="input-field col s4">
+
+                                <label for="insured_relationship_not-in-family"><b>insured_relationship_not-in-family </b></label>
+                                <br>
+                                <input id="insured_relationship_not-in-family" name="insured_relationship_not-in-family" placeholder="insured_relationship_not-in-family" type="text" class="validate">
+
+                            </div>
+
+                            <div class="input-field col s4">
+                                <label for="insured_relationship_other-relative"><b>insured_relationship_other-relative</b></label>
+                                <br>
+                                <input id="insured_relationship_other-relative" name="insured_relationship_other-relative" placeholder="insured_relationship_other-relative" type="text" class="validate">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <label for="insured_relationship_own-child"><b>insured_relationship_own-child</b></label>
+                                <br>
+                                <input placeholder="insured_relationship_own-child" name="insured_relationship_own-child" id="insured_relationship_own-child" type="text" class="validate">
+                            </div>
+                            <div class="input-field col s4">
+
+                                <label for="insured_relationship_unmarried"><b>insured_relationship_unmarried </b></label>
+                                <br>
+                                <input id="insured_relationship_unmarried" name="insured_relationship_unmarried" placeholder="insured_relationship_unmarried" type="text" class="validate">
+
+                            </div>
+
+                            <div class="input-field col s4">
+                                <label for="insured_relationship_wife"><b>insured_relationship_wife</b></label>
+                                <br>
+                                <input id="insured_relationship_wife" name="insured_relationship_wife" placeholder="insured_relationship_wife" type="text" class="validate">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <label for="incident_type_Parked Car"><b>incident_type_Parked Car</b></label>
+                                <br>
+                                <input placeholder="incident_type_Parked Car" name="incident_type_Parked Car" id="incident_type_Parked Car" type="text" class="validate">
+                            </div>
+                            <div class="input-field col s4">
+
+                                <label for="incident_type_Single Vehicle Collision"><b>incident_type_Single Vehicle Collision </b></label>
+                                <br>
+                                <input id="incident_type_Single Vehicle Collision" name="incident_type_Single Vehicle Collision" placeholder="incident_type_Single Vehicle Collision" type="text" class="validate">
+
+                            </div>
+
+                            <div class="input-field col s4">
+                                <label for="incident_type_Vehicle Theft"><b>incident_type_Vehicle Theft</b></label>
+                                <br>
+                                <input id="incident_type_Vehicle Theft" name="incident_type_Vehicle Theft" placeholder="incident_type_Vehicle Theft" type="text" class="validate">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <label for="collision_type_Rear Collision"><b>collision_type_Rear Collision</b></label>
+                                <br>
+                                <input placeholder="collision_type_Rear Collision" name="collision_type_Rear Collision" id="collision_type_Rear Collision" type="text" class="validate">
+                            </div>
+                            <div class="input-field col s4">
+
+                                <label for="collision_type_Side Collision"><b>collision_type_Side Collision </b></label>
+                                <br>
+                                <input id="collision_type_Side Collision" name="collision_type_Side Collision" placeholder="collision_type_Side Collision" type="text" class="validate">
+
+                            </div>
+
+                            <div class="input-field col s4">
+                                <label for="incident_severity_Minor Damage"><b>incident_severity_Minor Damage</b></label>
+                                <br>
+                                <input id="incident_severity_Minor Damage" name="incident_severity_Minor Damage" placeholder="incident_severity_Minor Damage" type="text" class="validate">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <label for="incident_severity_Total Loss"><b>incident_severity_Total Loss</b></label>
+                                <br>
+                                <input placeholder="incident_severity_Total Loss" name="incident_severity_Total Loss" id="incident_severity_Total Loss" type="text" class="validate">
+                            </div>
+                            <div class="input-field col s4">
+
+                                <label for="incident_severity_Trivial Damage"><b>incident_severity_Trivial Damage </b></label>
+                                <br>
+                                <input id="incident_severity_Trivial Damage" name="incident_severity_Trivial Damage" placeholder="incident_severity_Trivial Damage" type="text" class="validate">
+
+                            </div>
+
+                            <div class="input-field col s4">
+                                <label for="authorities_contacted_Fire"><b>authorities_contacted_Fire</b></label>
+                                <br>
+                                <input id="authorities_contacted_Fire" name="authorities_contacted_Fire" placeholder="authorities_contacted_Fire" type="text" class="validate">
+
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <label for="authorities_contacted_None"><b>authorities_contacted_None</b></label>
+                                <br>
+                                <input placeholder="authorities_contacted_None" name="authorities_contacted_None" id="authorities_contacted_None" type="text" class="validate">
+                            </div>
+                            <div class="input-field col s4">
+
+                                <label for="authorities_contacted_Other"><b>authorities_contacted_Other </b></label>
+                                <br>
+                                <input id="authorities_contacted_Other" name="authorities_contacted_Other" placeholder="authorities_contacted_Other" type="text" class="validate">
+
+                            </div>
+
+                            <div class="input-field col s4">
+                                <label for="authorities_contacted_Police"><b>authorities_contacted_Police</b></label>
+                                <br>
+                                <input id="authorities_contacted_Police" name="authorities_contacted_Police" placeholder="authorities_contacted_Police" type="text" class="validate">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <label for="property_damage_YES"><b>property_damage_YES</b></label>
+                                <br>
+                                <input placeholder="property_damage_YES" name="property_damage_YES" id="property_damage_YES" type="text" class="validate">
+                            </div>
+                            <div class="input-field col s4">
+
+                                <label for="police_report_available_YES"><b>police_report_available_YES </b></label>
+                                <br>
+                                <input id="police_report_available_YES" name="police_report_available_YES" placeholder="police_report_available_YES" type="text" class="validate">
+
+                            </div>
+
+
+
+                        </div>
+
+
+
+                </div>
+
+                <div class="row center">
+
+                    <button type="submit" class="btn-large waves-effect waves-light orange">Predict Probability</button>
+                </div>
+                </form>
+        </div>
+
+        <div>
+            <center>
+                <h4>{{ prediction}}</h4>
+            </center>
+        </div>
+
+    </div>
+    </div>
+
+
+    <br><br>
+    </div>
+    </div>>
+
+    <footer class="page-footer orange">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Company Bio</h5>
+                    <p class="grey-text text-lighten-4">XYZ Insurance Company is aimed to protect from Fraudlent Claims by providing secured services.</p>
+
+
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Settings</h5>
+                    <ul>
+                        <li><a class="white-text" href="#!">Link 1</a></li>
+                        <li><a class="white-text" href="#!">Link 2</a></li>
+                        <li><a class="white-text" href="#!">Link 3</a></li>
+                        <li><a class="white-text" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+                <div class="col l3 s12">
+                    <h5 class="white-text">Connect</h5>
+                    <ul>
+                        <li><a class="white-text" href="#!">Link 1</a></li>
+                        <li><a class="white-text" href="#!">Link 2</a></li>
+                        <li><a class="white-text" href="#!">Link 3</a></li>
+                        <li><a class="white-text" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Copyright: Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Albatross</a>
+                <p align="center"><a href="mailto:hege@example.com">For Queries mail@: <b>devshobhan4@gmail.com</b></a></p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src=".js/materialize.js"></script>
+    <script src="js/init.js"></script>
+
+</body>
+
+</html>
