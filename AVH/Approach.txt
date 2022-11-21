@@ -1,0 +1,9 @@
+1.	Fixed missing values
+2.	Analysed data by plotting charts 
+3.	Tried to remove outliers
+4.	Created new columns about current time and past energy consumptions
+5.	Trained data using cross validation
+6.      Prepared model using fb prophet time series library
+7.	Predicted data 
+8.	Performed diagnosis metrics of fb prophet and analysed the error rates
+9.	Generated submission.csv 
