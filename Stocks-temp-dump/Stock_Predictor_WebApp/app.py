@@ -138,22 +138,24 @@ else:
     
 
     st.markdown("## SMA Indicator")
-    # Define the main content
     st.title('Simple Moving Average (SMA) Plot')
     st.write(f'Ticker Symbol: {user_input}')
     st.write(f'SMA Window: {window} Days')
-
-    # Call the sma_plot function
     fig = t.sma_plot(user_input, window)
     st.pyplot(fig)
+    st.write(" ***:blue[Strategy:]:***")
+    st.write(":red[Sell  Signal:] If 50-day moving average < 200-day moving average, it is a bearish signal")
+    st.write(":green[Buy Signal:] If 50-day moving average > 200-day moving average, it is a bullish signal")
+
 
     st.markdown("## EMA Indicator")
-    # Define the main content
     st.title('Exponential Moving Average (EMA) Plot')
     st.write(f'Ticker Symbol: {user_input}')
-
-    # Call the sma_plot function
     fig = t.ema_plot(user_input, date_from, date_to)
     st.pyplot(fig)
+    st.write(" ***:blue[Strategy:]:***")
+    st.write(":red[Sell  Signal:] When the 50-day EMA crosses below the 200-day EMA, it is considered a bearish signal, indicating that the stock price may continue to fall. This is because the **recent prices are lower than the longer-term prices")
+    st.write(":green[Buy Signal:] When the 50-day EMA crosses above the 200-day EMA, it is considered a bullish signal, indicating that the stock price may continue to rise. This is because the **recent prices are higher than the longer-term prices")
+
 
 
