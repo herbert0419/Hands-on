@@ -132,9 +132,6 @@ if btn:
     st.write(":red[Sell  Signal:] As soon as the market price touches the upper Bollinger band")
     st.write(":green[Buy Signal:] As soon as the market price touches the lower Bollinger band")
 
-else:
-    st.write('Please click on the submit to get the analysis') #displayed when the button is unclicked
-
     
 
     st.markdown("## SMA Indicator")
@@ -158,4 +155,5 @@ else:
     st.write(":green[Buy Signal:] When the 50-day EMA crosses above the 200-day EMA, it is considered a bullish signal, indicating that the stock price may continue to rise. This is because the **recent prices are higher than the longer-term prices")
 
 
-
+else:
+    st.write('Please click on the submit to get the analysis') #displayed when the button is unclicked
