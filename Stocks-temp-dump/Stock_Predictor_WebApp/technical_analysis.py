@@ -214,23 +214,50 @@ def plot_bollinger_bands(company):
 
 
     
-def get_signals(data):
-    df = data.iloc[-252:]
-    sma = df['Close'].rolling(window=50).mean()
-
-    buy_sell_df = pd.DataFrame(index=df.index)
+def sma_plot(user_input, window):
+    # Download data using yfinance
+    data = yf.download(user_input, period='max')
+    # Calculate SMA using rolling window
+    sma = data['Close'].rolling(window=window).mean()
+    # Create a dataframe for buy and sell signals
+    buy_sell_df = pd.DataFrame(index=data.index)
     buy_sell_df['SMA'] = sma
-    buy_sell_df['Close'] = df['Close']
+    buy_sell_df['Close'] = data['Close']
     buy_sell_df['Signal'] = 0.0
-    buy_sell_df['Buy'] = np.zeros(len(df))
-    buy_sell_df['Sell'] = np.zeros(len(df))
-
-    for i in range(1, len(df)):
-        if sma[i] > df['Close'][i] and sma[i-1] <= df['Close'][i-1]:
+    buy_sell_df['Buy'] = np.zeros(len(data))
+    buy_sell_df['Sell'] = np.zeros(len(data))
+    # Determine the buy and sell signals
+    for i in range(1, len(data)):
+        if sma[i] > data['Close'][i] and sma[i-1] <= data['Close'][i-1]:
             buy_sell_df['Signal'][i] = 1.0
-            buy_sell_df['Buy'][i] = df['Close'][i]
-        elif sma[i] < df['Close'][i] and sma[i-1] >= df['Close'][i-1]:
+            buy_sell_df['Buy'][i] = data['Close'][i]
+        elif sma[i] < data['Close'][i] and sma[i-1] >= data['Close'][i-1]:
             buy_sell_df['Signal'][i] = -1.0
-            buy_sell_df['Sell'][i] = df['Close'][i]
+            buy_sell_df['Sell'][i] = data['Close'][i]
+    # Create a plot of the stock price with SMA and buy and sell signals
+    fig, ax = plt.subplots(figsize=(20, 9))
+    ax.plot(data.index, data['Close'], label='Close')
+    ax.plot(sma.index, sma, label=f'{window} Day SMA')
+    ax.scatter(buy_sell_df.index[buy_sell_df['Signal'] == 1.0], buy_sell_df['Buy'][buy_sell_df['Signal'] == 1.0], marker='^', color='green', label='Buy')
+    ax.scatter(buy_sell_df.index[buy_sell_df['Signal'] == -1.0], buy_sell_df['Sell'][buy_sell_df['Signal'] == -1.0], marker='v', color='red', label='Sell')
+    ax.legend()
+    return fig
 
-    return df, sma, buy_sell_df
+
+
+def ema_plot(user_input, date_from, date_to):
+    # Download data from Yahoo Finance API
+    df = yf.download(user_input, start=date_from, end=date_to)
+
+    # Compute EMA with a window of 20 days
+    ema = df['Adj Close'].ewm(span=20, adjust=False).mean()
+
+    # Create a plot of the stock price with EMA
+    fig, ax = plt.subplots(figsize=(20, 9))
+    ax.plot(df.index, df['Adj Close'], label='Close')
+    ax.plot(ema.index, ema, label='EMA')
+    ax.set_xlabel('Date')
+    ax.set_ylabel('Price')
+    ax.set_title(f'{user_input} EMA plot')
+    ax.legend()
+    return fig

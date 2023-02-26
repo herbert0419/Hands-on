@@ -26,6 +26,7 @@ with st.sidebar:
 
     st.markdown("# Stock Analysis & Forecasting")
     user_input = st.text_input('Enter Stock Name', "ADANIENT.NS")
+    window = st.sidebar.slider('Select SMA Window (Days)', min_value=10, max_value=100, value=50)
     st.markdown("### Choose Date for your anaylsis")
     date_from = st.date_input("From",datetime.date(2020, 1, 1))
     date_to = st.date_input("To",datetime.date(2023, 2, 25))
@@ -137,19 +138,22 @@ else:
     
 
     st.markdown("## SMA Indicator")
-    # Get the data and signals for the selected stock
-    data = t.get_signals(user_input)
-    df, sma, buy_sell_df = t.get_signals(data)
+    # Define the main content
+    st.title('Simple Moving Average (SMA) Plot')
+    st.write(f'Ticker Symbol: {user_input}')
+    st.write(f'SMA Window: {window} Days')
 
-    # Create a plot of the stock price with sma and buy and sell signals
-    fig, ax = plt.subplots(figsize=(20, 9))
-    ax.plot(df.index, df['Close'], label='Close')
-    ax.plot(sma.index, sma, label='SMA')
-    ax.scatter(buy_sell_df.index, buy_sell_df['Buy'], marker='^', color='green', label='Buy')
-    ax.scatter(buy_sell_df.index, buy_sell_df['Sell'], marker='v', color='red', label='Sell')
-    ax.legend()
+    # Call the sma_plot function
+    fig = t.sma_plot(user_input, window)
     st.pyplot(fig)
 
+    st.markdown("## EMA Indicator")
+    # Define the main content
+    st.title('Exponential Moving Average (EMA) Plot')
+    st.write(f'Ticker Symbol: {user_input}')
 
+    # Call the sma_plot function
+    fig = t.ema_plot(user_input, date_from, date_to)
+    st.pyplot(fig)
 
 
