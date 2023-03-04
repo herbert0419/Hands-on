@@ -131,6 +131,10 @@ if btn:
     st.write(" ***:blue[Strategy:]:***")
     st.write(":red[Sell  Signal:] As soon as the market price touches the upper Bollinger band")
     st.write(":green[Buy Signal:] As soon as the market price touches the lower Bollinger band")
+<<<<<<< HEAD
+=======
+
+>>>>>>> 12cf0d742a1cc4139aaff829275fbcc89b03590c
     
 
     st.markdown("## SMA Indicator")
@@ -156,4 +160,7 @@ if btn:
 
 else:
     st.write('Please click on the submit to get the analysis') #displayed when the button is unclicked
+<<<<<<< HEAD
 
+=======
+>>>>>>> 12cf0d742a1cc4139aaff829275fbcc89b03590c
